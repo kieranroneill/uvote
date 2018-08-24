@@ -14,14 +14,16 @@
     "node": ">=8.11.2"
   },
   "scripts": {
-    "deploy:development": "truffle compile --network development",
+    "deploy:development": "truffle compile && truffle migrate --network development",
     "start": "node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress",
-    "start:network": "ganache-cli --port 8545",
+    "start:network": "ganache-cli --host localhost --port 8545 --debug",
     "test": "cross-env JEST_JUNIT_OUTPUT=\"junit/test-results.xml\" jest --config=test/jest.config.js"
   },
   "devDependencies": {
     "@types/react": "^16.4.11",
     "@types/react-dom": "^16.0.7",
+    "@types/react-redux": "^6.0.6",
+    "@types/react-router-dom": "^4.3.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",
@@ -39,9 +41,15 @@
     "webpack-notifier": "^1.6.0"
   },
   "dependencies": {
+    "@material-ui/icons": "^2.0.3",
+    "bignumber.js": "^7.2.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "styled-components": "^3.4.5",
     "truffle-contract": "^3.0.6",
-    "web3": "^1.0.0-beta.35"
+    "web3": "^0.20.6"
   }
 }

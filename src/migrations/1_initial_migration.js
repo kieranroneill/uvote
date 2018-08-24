@@ -1,5 +1,7 @@
-import { join } from 'path';
+const path = require('path');
 
-const Migrations = artifacts.require(join(__dirname, '..', 'contracts', 'Migrations.sol'));
+const Migrations = artifacts.require(path.join(__dirname, '..', 'contracts', 'Migrations.sol'));
 
-module.exports = deployer => deployer.deploy(Migrations);
+module.exports = function(deployer) {
+    deployer.deploy(Migrations);
+};
