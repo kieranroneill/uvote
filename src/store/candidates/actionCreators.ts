@@ -16,12 +16,16 @@ import {
     GetCandidatesAction,
 } from './types';
 
+// Utils.
+import { getCandidatesFromContract } from './utils';
+
+const ballotContract: TruffleContract<BallotContract> = contract(require('../../../build/contracts/Ballot.json'));
+
 export type GetCandidatesActionCreator = ActionCreator<ThunkAction<Promise<GetCandidatesAction>, ApplicationState, void, GetCandidatesAction>>;
 export type AddCandidateActionCreator = ActionCreator<ThunkAction<Promise<AddCandidateAction>, ApplicationState, void, AddCandidateAction>>;
 
 export const addCandidate: AddCandidateActionCreator = (candidate: Candidate) => {
     return async (dispatch: Dispatch): Promise<AddCandidateAction> => {
-        const ballotContract: TruffleContract<BallotContract> = contract(require('../../../build/contracts/Ballot.json'));
         let instance: BallotContract;
 
         dispatch({
@@ -59,11 +63,9 @@ export const addCandidate: AddCandidateActionCreator = (candidate: Candidate) =>
 
 export const getCandidates: GetCandidatesActionCreator = () => {
     return async (dispatch: Dispatch): Promise<GetCandidatesAction> => {
-        const ballotContract: TruffleContract<BallotContract> = contract(require('../../../build/contracts/Ballot.json'));
         let instance: BallotContract;
         let numberOfCandidates: BigNumber;
-        let getCandidatePromises: Promise<BigNumber>[] = [];
-        let candidates: any[] = [];
+        let items: Candidate[] = [];
 
         dispatch({
             type: CandidatesActionTypes.CandidatesRequest,
@@ -73,27 +75,14 @@ export const getCandidates: GetCandidatesActionCreator = () => {
             ballotContract.setProvider(window.web3.currentProvider);
             ballotContract.defaults({
                 from: window.web3.eth.accounts[0],
-                gas: 6721975
             });
 
             instance = await ballotContract.deployed();
             numberOfCandidates = await instance.getNumOfCandidates();
-
-            console.log(numberOfCandidates.toString());
-
-            for (let i: number = 0; i < numberOfCandidates.toNumber(); i++) {
-                getCandidatePromises.push(instance.getCandidate(i));
-            }
-
-            candidates = await Promise.all(getCandidatePromises);
-
-            console.dir(candidates);
-            candidates.forEach((candidate: BigNumber) => {
-                console.log(window.web3.toAscii(candidate[1]));
-            });
+            items = await getCandidatesFromContract(instance, numberOfCandidates.toNumber());
 
             dispatch({
-                items: [],
+                items,
                 type: CandidatesActionTypes.GetCandidatesSuccess
             })
         } catch (error) {

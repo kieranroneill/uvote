@@ -11,4 +11,5 @@ interface BallotContract {
     addCandidate: (name: string, party: string) => Promise<void>;
     getCandidate: (candidateId: number) => Promise<BigNumber>;
     getNumOfCandidates: () => Promise<BigNumber>;
+    totalVotes: (candidateId: number) => Promise<BigNumber>;
 }

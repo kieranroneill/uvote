@@ -4,6 +4,7 @@ import {
     bindActionCreators,
     Dispatch,
 } from 'redux';
+import styled from 'styled-components';
 
 // Action creators.
 import {
@@ -13,13 +14,29 @@ import {
     GetCandidatesActionCreator,
 } from '../../store/candidates/actionCreators';
 
+// Components.
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import { Main } from '../../components/Main';
+import { CandidateTile } from './components/CandidateTile';
+
 // Types.
 import { ApplicationState } from '../../store';
-import { CandidatesState } from '../../store/candidates/types';
+import {
+    Candidate,
+    CandidatesState,
+} from '../../store/candidates/types';
+
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 1rem 1rem 0;
+`;
 
 interface Props {
     addCandidate: AddCandidateActionCreator;
-    candidates: CandidatesState;
+    candidatesState: CandidatesState;
     getCandidates: GetCandidatesActionCreator;
 }
 
@@ -36,18 +53,42 @@ class Candidates extends React.PureComponent<Props> {
     }
 
     onAddCandidate(): void {
-        this.props.addCandidate({
-            name: 'Kieran',
-            party: 'Evil party',
-        });
+        console.log('clicked');
     }
 
     render(): React.ReactNode {
+        const { candidatesState } = this.props;
+
         return (
-            <>
-                <div>Hello human!</div>
-                <button onClick={this.onAddCandidate}>Add Candidate</button>
-            </>
+            <Main>
+                <Wrapper>
+                    <Grid
+                        container
+                        justify="center"
+                        spacing={16}>
+                        {
+                            candidatesState.items.map((value: Candidate, index: number) =>
+                                <Grid
+                                    item
+                                    key={index}>
+                                    <CandidateTile candidate={value} />
+                                </Grid>
+                            )
+                        }
+                    </Grid>
+                </Wrapper>
+                <Button
+                    aria-label="Add candidate"
+                    color="secondary"
+                    style={{
+                        bottom: '2rem',
+                        position: 'fixed',
+                        right: '2rem',
+                    }}
+                    variant="fab">
+                    <AddIcon />
+                </Button>
+            </Main>
         );
     }
 }
@@ -57,7 +98,7 @@ const mapDispatchToProps= (dispatch: Dispatch) => ({
     getCandidates: bindActionCreators(getCandidates, dispatch),
 });
 const mapStateToProps = (state: ApplicationState) => ({
-    candidates: state.candidatesState,
+    candidatesState: state.candidatesState,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Candidates);

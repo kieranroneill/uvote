@@ -1,0 +1,1005 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/pages/Movies/components/MovieTile/index.tsx <MovieTile /> snapshots should match the snapshot with a default placeholder image 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieTile
+    genres={
+      Object {
+        "loading": false,
+        "results": Array [
+          Object {
+            "id": 16,
+            "name": "Anime",
+          },
+        ],
+      }
+    }
+    movie={
+      Object {
+        "adult": false,
+        "backdrop_path": "/kEqeponciiz6TyuKWtnKSzXzbGa.jpg",
+        "genre_ids": Array [
+          16,
+          80,
+          9648,
+          28,
+          18,
+        ],
+        "id": 493006,
+        "original_language": "ja",
+        "original_title": "名探偵コナン ゼロの執行人",
+        "overview": "There is a sudden explosion at Tokyo Summit's giant Edge of Ocean facility. The shadow of Tōru Amuro, who works for the National Police Agency Security Bureau as Zero, appears at the site. In addition, the 'triple-face' character is known as Rei Furuya as a detective and Kogorō Mōri's apprentice, and he is also known as Bourbon as a Black Organization member. Kogorō is arrested as a suspect in the case of the explosion. Conan conducts an investigation to prove Kogorō's innocence, but Amuro gets in his way.",
+        "popularity": 63.691,
+        "poster_path": null,
+        "release_date": "2018-04-13",
+        "title": "Detective Conan: Zero the Enforcer",
+        "video": false,
+        "vote_average": 4.4,
+        "vote_count": 9,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.div>
+        <styled.div
+          imageUrl={null}
+        />
+        <Styled(Link)
+          to="/movie/493006"
+        >
+          <styled.div>
+            <styled.h4>
+              Detective Conan: Zero the Enforcer
+            </styled.h4>
+            <styled.div>
+              <styled.span>
+                Anime
+              </styled.span>
+            </styled.div>
+            <styled.div>
+              <styled.p>
+                4.4
+              </styled.p>
+              <Styled(WithStyles(Icon))>
+                grade
+              </Styled(WithStyles(Icon))>
+            </styled.div>
+          </styled.div>
+        </Styled(Link)>
+      </styled.div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            imageUrl={null}
+          />,
+          <Styled(Link)
+            to="/movie/493006"
+          >
+            <styled.div>
+              <styled.h4>
+                Detective Conan: Zero the Enforcer
+              </styled.h4>
+              <styled.div>
+                <styled.span>
+                  Anime
+                </styled.span>
+              </styled.div>
+              <styled.div>
+                <styled.p>
+                  4.4
+                </styled.p>
+                <Styled(WithStyles(Icon))>
+                  grade
+                </Styled(WithStyles(Icon))>
+              </styled.div>
+            </styled.div>
+          </Styled(Link)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "imageUrl": null,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled.div>
+              <styled.h4>
+                Detective Conan: Zero the Enforcer
+              </styled.h4>
+              <styled.div>
+                <styled.span>
+                  Anime
+                </styled.span>
+              </styled.div>
+              <styled.div>
+                <styled.p>
+                  4.4
+                </styled.p>
+                <Styled(WithStyles(Icon))>
+                  grade
+                </Styled(WithStyles(Icon))>
+              </styled.div>
+            </styled.div>,
+            "to": "/movie/493006",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.h4>
+                  Detective Conan: Zero the Enforcer
+                </styled.h4>,
+                <styled.div>
+                  <styled.span>
+                    Anime
+                  </styled.span>
+                </styled.div>,
+                <styled.div>
+                  <styled.p>
+                    4.4
+                  </styled.p>
+                  <Styled(WithStyles(Icon))>
+                    grade
+                  </Styled(WithStyles(Icon))>
+                </styled.div>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Detective Conan: Zero the Enforcer",
+                },
+                "ref": null,
+                "rendered": "Detective Conan: Zero the Enforcer",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.span>
+                      Anime
+                    </styled.span>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "0",
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Anime",
+                    },
+                    "ref": null,
+                    "rendered": "Anime",
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.p>
+                      4.4
+                    </styled.p>,
+                    <Styled(WithStyles(Icon))>
+                      grade
+                    </Styled(WithStyles(Icon))>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": 4.4,
+                    },
+                    "ref": null,
+                    "rendered": 4.4,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "grade",
+                    },
+                    "ref": null,
+                    "rendered": "grade",
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.div>
+          <styled.div
+            imageUrl={null}
+          />
+          <Styled(Link)
+            to="/movie/493006"
+          >
+            <styled.div>
+              <styled.h4>
+                Detective Conan: Zero the Enforcer
+              </styled.h4>
+              <styled.div>
+                <styled.span>
+                  Anime
+                </styled.span>
+              </styled.div>
+              <styled.div>
+                <styled.p>
+                  4.4
+                </styled.p>
+                <Styled(WithStyles(Icon))>
+                  grade
+                </Styled(WithStyles(Icon))>
+              </styled.div>
+            </styled.div>
+          </Styled(Link)>
+        </styled.div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div
+              imageUrl={null}
+            />,
+            <Styled(Link)
+              to="/movie/493006"
+            >
+              <styled.div>
+                <styled.h4>
+                  Detective Conan: Zero the Enforcer
+                </styled.h4>
+                <styled.div>
+                  <styled.span>
+                    Anime
+                  </styled.span>
+                </styled.div>
+                <styled.div>
+                  <styled.p>
+                    4.4
+                  </styled.p>
+                  <Styled(WithStyles(Icon))>
+                    grade
+                  </Styled(WithStyles(Icon))>
+                </styled.div>
+              </styled.div>
+            </Styled(Link)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "imageUrl": null,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <styled.div>
+                <styled.h4>
+                  Detective Conan: Zero the Enforcer
+                </styled.h4>
+                <styled.div>
+                  <styled.span>
+                    Anime
+                  </styled.span>
+                </styled.div>
+                <styled.div>
+                  <styled.p>
+                    4.4
+                  </styled.p>
+                  <Styled(WithStyles(Icon))>
+                    grade
+                  </Styled(WithStyles(Icon))>
+                </styled.div>
+              </styled.div>,
+              "to": "/movie/493006",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.h4>
+                    Detective Conan: Zero the Enforcer
+                  </styled.h4>,
+                  <styled.div>
+                    <styled.span>
+                      Anime
+                    </styled.span>
+                  </styled.div>,
+                  <styled.div>
+                    <styled.p>
+                      4.4
+                    </styled.p>
+                    <Styled(WithStyles(Icon))>
+                      grade
+                    </Styled(WithStyles(Icon))>
+                  </styled.div>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Detective Conan: Zero the Enforcer",
+                  },
+                  "ref": null,
+                  "rendered": "Detective Conan: Zero the Enforcer",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.span>
+                        Anime
+                      </styled.span>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "0",
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Anime",
+                      },
+                      "ref": null,
+                      "rendered": "Anime",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.p>
+                        4.4
+                      </styled.p>,
+                      <Styled(WithStyles(Icon))>
+                        grade
+                      </Styled(WithStyles(Icon))>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": 4.4,
+                      },
+                      "ref": null,
+                      "rendered": 4.4,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "grade",
+                      },
+                      "ref": null,
+                      "rendered": "grade",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`src/pages/Movies/components/MovieTile/index.tsx <MovieTile /> snapshots should match the snapshot with default props 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieTile
+    genres={
+      Object {
+        "loading": false,
+        "results": Array [
+          Object {
+            "id": 16,
+            "name": "Anime",
+          },
+        ],
+      }
+    }
+    movie={
+      Object {
+        "adult": false,
+        "backdrop_path": "/kEqeponciiz6TyuKWtnKSzXzbGa.jpg",
+        "genre_ids": Array [
+          16,
+          80,
+          9648,
+          28,
+          18,
+        ],
+        "id": 493006,
+        "original_language": "ja",
+        "original_title": "名探偵コナン ゼロの執行人",
+        "overview": "There is a sudden explosion at Tokyo Summit's giant Edge of Ocean facility. The shadow of Tōru Amuro, who works for the National Police Agency Security Bureau as Zero, appears at the site. In addition, the 'triple-face' character is known as Rei Furuya as a detective and Kogorō Mōri's apprentice, and he is also known as Bourbon as a Black Organization member. Kogorō is arrested as a suspect in the case of the explosion. Conan conducts an investigation to prove Kogorō's innocence, but Amuro gets in his way.",
+        "popularity": 63.691,
+        "poster_path": "/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg",
+        "release_date": "2018-04-13",
+        "title": "Detective Conan: Zero the Enforcer",
+        "video": false,
+        "vote_average": 4.4,
+        "vote_count": 9,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <styled.div>
+        <styled.div
+          imageUrl="/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg"
+        />
+        <Styled(Link)
+          to="/movie/493006"
+        >
+          <styled.div>
+            <styled.h4>
+              Detective Conan: Zero the Enforcer
+            </styled.h4>
+            <styled.div>
+              <styled.span>
+                Anime
+              </styled.span>
+            </styled.div>
+            <styled.div>
+              <styled.p>
+                4.4
+              </styled.p>
+              <Styled(WithStyles(Icon))>
+                grade
+              </Styled(WithStyles(Icon))>
+            </styled.div>
+          </styled.div>
+        </Styled(Link)>
+      </styled.div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled.div
+            imageUrl="/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg"
+          />,
+          <Styled(Link)
+            to="/movie/493006"
+          >
+            <styled.div>
+              <styled.h4>
+                Detective Conan: Zero the Enforcer
+              </styled.h4>
+              <styled.div>
+                <styled.span>
+                  Anime
+                </styled.span>
+              </styled.div>
+              <styled.div>
+                <styled.p>
+                  4.4
+                </styled.p>
+                <Styled(WithStyles(Icon))>
+                  grade
+                </Styled(WithStyles(Icon))>
+              </styled.div>
+            </styled.div>
+          </Styled(Link)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "imageUrl": "/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled.div>
+              <styled.h4>
+                Detective Conan: Zero the Enforcer
+              </styled.h4>
+              <styled.div>
+                <styled.span>
+                  Anime
+                </styled.span>
+              </styled.div>
+              <styled.div>
+                <styled.p>
+                  4.4
+                </styled.p>
+                <Styled(WithStyles(Icon))>
+                  grade
+                </Styled(WithStyles(Icon))>
+              </styled.div>
+            </styled.div>,
+            "to": "/movie/493006",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.h4>
+                  Detective Conan: Zero the Enforcer
+                </styled.h4>,
+                <styled.div>
+                  <styled.span>
+                    Anime
+                  </styled.span>
+                </styled.div>,
+                <styled.div>
+                  <styled.p>
+                    4.4
+                  </styled.p>
+                  <Styled(WithStyles(Icon))>
+                    grade
+                  </Styled(WithStyles(Icon))>
+                </styled.div>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Detective Conan: Zero the Enforcer",
+                },
+                "ref": null,
+                "rendered": "Detective Conan: Zero the Enforcer",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.span>
+                      Anime
+                    </styled.span>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "0",
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Anime",
+                    },
+                    "ref": null,
+                    "rendered": "Anime",
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <styled.p>
+                      4.4
+                    </styled.p>,
+                    <Styled(WithStyles(Icon))>
+                      grade
+                    </Styled(WithStyles(Icon))>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": 4.4,
+                    },
+                    "ref": null,
+                    "rendered": 4.4,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "grade",
+                    },
+                    "ref": null,
+                    "rendered": "grade",
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <styled.div>
+          <styled.div
+            imageUrl="/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg"
+          />
+          <Styled(Link)
+            to="/movie/493006"
+          >
+            <styled.div>
+              <styled.h4>
+                Detective Conan: Zero the Enforcer
+              </styled.h4>
+              <styled.div>
+                <styled.span>
+                  Anime
+                </styled.span>
+              </styled.div>
+              <styled.div>
+                <styled.p>
+                  4.4
+                </styled.p>
+                <Styled(WithStyles(Icon))>
+                  grade
+                </Styled(WithStyles(Icon))>
+              </styled.div>
+            </styled.div>
+          </Styled(Link)>
+        </styled.div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled.div
+              imageUrl="/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg"
+            />,
+            <Styled(Link)
+              to="/movie/493006"
+            >
+              <styled.div>
+                <styled.h4>
+                  Detective Conan: Zero the Enforcer
+                </styled.h4>
+                <styled.div>
+                  <styled.span>
+                    Anime
+                  </styled.span>
+                </styled.div>
+                <styled.div>
+                  <styled.p>
+                    4.4
+                  </styled.p>
+                  <Styled(WithStyles(Icon))>
+                    grade
+                  </Styled(WithStyles(Icon))>
+                </styled.div>
+              </styled.div>
+            </Styled(Link)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "imageUrl": "/mMWV5MXn2pkDnnI4vWpy3dRWdNC.jpg",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <styled.div>
+                <styled.h4>
+                  Detective Conan: Zero the Enforcer
+                </styled.h4>
+                <styled.div>
+                  <styled.span>
+                    Anime
+                  </styled.span>
+                </styled.div>
+                <styled.div>
+                  <styled.p>
+                    4.4
+                  </styled.p>
+                  <Styled(WithStyles(Icon))>
+                    grade
+                  </Styled(WithStyles(Icon))>
+                </styled.div>
+              </styled.div>,
+              "to": "/movie/493006",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled.h4>
+                    Detective Conan: Zero the Enforcer
+                  </styled.h4>,
+                  <styled.div>
+                    <styled.span>
+                      Anime
+                    </styled.span>
+                  </styled.div>,
+                  <styled.div>
+                    <styled.p>
+                      4.4
+                    </styled.p>
+                    <Styled(WithStyles(Icon))>
+                      grade
+                    </Styled(WithStyles(Icon))>
+                  </styled.div>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Detective Conan: Zero the Enforcer",
+                  },
+                  "ref": null,
+                  "rendered": "Detective Conan: Zero the Enforcer",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.span>
+                        Anime
+                      </styled.span>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "0",
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Anime",
+                      },
+                      "ref": null,
+                      "rendered": "Anime",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <styled.p>
+                        4.4
+                      </styled.p>,
+                      <Styled(WithStyles(Icon))>
+                        grade
+                      </Styled(WithStyles(Icon))>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": 4.4,
+                      },
+                      "ref": null,
+                      "rendered": 4.4,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "grade",
+                      },
+                      "ref": null,
+                      "rendered": "grade",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

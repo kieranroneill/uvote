@@ -59,6 +59,7 @@ export enum CandidatesActionTypes {
 export interface Candidate {
     name: string;
     party: string;
+    votes: number;
 }
 
 //====================================================
