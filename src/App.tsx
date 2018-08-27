@@ -13,8 +13,10 @@ import { injectGlobal } from 'styled-components';
 import { Routes } from './config/routes';
 
 // Components.
-import { Shell } from './components/Shell';
+import Shell from './components/Shell';
 import Candidates from './pages/Candidates';
+import Results from './pages/Results';
+import Vote from './pages/Vote';
 
 // Store.
 import {
@@ -133,9 +135,17 @@ const App: React.SFC = () => (
             <Shell>
                 <Switch>
                     <Route
+                        component={Candidates}
                         exact
-                        path={Routes.Candidates}
-                        component={ Candidates } />
+                        path={Routes.Candidates} />
+                    <Route
+                        component={Vote}
+                        exact
+                        path={Routes.Vote} />
+                    <Route
+                        component={Results}
+                        exact
+                        path={Routes.Results} />
                     <Redirect
                         from="*"
                         to={Routes.Candidates} />

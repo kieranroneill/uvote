@@ -32,6 +32,7 @@ const reducer: Reducer<CandidatesState, CandidatesActions> = (state: CandidatesS
             return {
                 ...state,
                 items: action.items,
+                loading: false,
             };
         default:
             return state;

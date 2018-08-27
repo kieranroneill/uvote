@@ -1,13 +1,17 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+// State.
+import { ApplicationState } from '../../store';
 
 // Styles.
 import palette from '../../styles/palette';
 import typography from '../../styles/typography';
 
-interface Props {
-    children: React.ReactNode;
-}
+// Types.
+import { LayoutState } from '../../store/layout/types';
 
 const Wrapper = styled.div`
     background-color: ${palette.primary.lightGrey};
@@ -19,13 +23,32 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
+interface Props {
+    children: React.ReactNode;
+    layoutState: LayoutState;
+}
+
 const Shell: React.SFC<Props> = (props: Props) => (
-    <Wrapper>
-        {props.children}
-    </Wrapper>
+    <>
+        <Helmet>
+            <title>{`uVote - ${props.layoutState.page.title}`}</title>
+        </Helmet>
+        <Wrapper>
+            {props.children}
+        </Wrapper>
+    </>
 );
 
-export default Shell;
+const mapStateToProps = (state: ApplicationState) => ({
+    layoutState: state.layoutState,
+});
+
+export default connect(
+    mapStateToProps,
+    null,
+    null,
+    { pure: false }
+)(Shell);
 export {
     Shell,
     Props

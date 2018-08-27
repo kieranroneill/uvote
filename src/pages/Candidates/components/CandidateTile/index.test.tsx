@@ -14,7 +14,8 @@ describe('src/pages/Candidates/components/CandidateTile', () => {
         props = {
             candidate: {
                 name: 'Kieran',
-                party: 'Evil party'
+                party: 'Evil party',
+                votes: 0,
             },
         };
     });
