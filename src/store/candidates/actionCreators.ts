@@ -49,7 +49,7 @@ export const addCandidate: AddCandidateActionCreator = (candidate: Candidate) =>
             })
         } catch (error) {
             dispatch({
-                error: 'failed to get candidates',
+                error: 'failed to add candidate',
                 type: CandidatesActionTypes.CandidatesError,
             });
         }

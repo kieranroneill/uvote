@@ -19,14 +19,10 @@ import { setPageTitle } from '../../store/layout/actionCreators';
 // Components.
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Tooltip from '@material-ui/core/Tooltip';
+import AddCandidateDialog from './components/AddCandidateDialog';
 import { CandidateTile } from './components/CandidateTile';
 import Main from '../../components/Main';
 
@@ -76,7 +72,6 @@ class Candidates extends React.PureComponent<Props, State> {
         };
 
         // Bind functions.
-        this.onAddCandidateClick = this.onAddCandidateClick.bind(this);
         this.onDialogClose = this.onDialogClose.bind(this);
         this.onDialogOpenClick = this.onDialogOpenClick.bind(this);
     }
@@ -123,10 +118,6 @@ class Candidates extends React.PureComponent<Props, State> {
         );
     }
 
-    onAddCandidateClick(): void {
-
-    }
-
     onDialogClose(): void {
         this.setState({
             isDialogOpen: false,
@@ -163,31 +154,10 @@ class Candidates extends React.PureComponent<Props, State> {
                         <AddIcon />
                     </Button>
                 </Tooltip>
-                <Dialog
-                    open={isDialogOpen}
+                <AddCandidateDialog
                     onClose={this.onDialogClose}
-                    aria-labelledby="responsive-dialog-title">
-                    <DialogTitle id="responsive-dialog-title">
-                        Add Candidate
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Let Google help apps determine location. This means sending anonymous location data to
-                            Google, even when no apps are running.
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.onDialogClose} color="primary">
-                            Cancel
-                        </Button>
-                        <Button
-                            autoFocus
-                            color="primary"
-                            onClick={this.onAddCandidateClick}>
-                            Add Candidate
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                    open={isDialogOpen}
+                />
             </Main>
         );
     }
