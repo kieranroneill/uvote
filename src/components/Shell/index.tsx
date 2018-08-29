@@ -23,12 +23,12 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
-interface Props {
+export interface Props {
     children: React.ReactNode;
     layoutState: LayoutState;
 }
 
-const Shell: React.SFC<Props> = (props: Props) => (
+export const Shell: React.SFC<Props> = (props: Props) => (
     <>
         <Helmet>
             <title>{`uVote - ${props.layoutState.page.title}`}</title>
@@ -49,7 +49,3 @@ export default connect(
     null,
     { pure: false }
 )(Shell);
-export {
-    Shell,
-    Props
-};

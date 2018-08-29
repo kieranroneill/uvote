@@ -4,6 +4,7 @@ import {
     BrowserRouter,
     Redirect,
     Route,
+    RouteComponentProps,
     Switch
 } from 'react-router-dom';
 import { Store } from 'redux';
@@ -14,7 +15,10 @@ import { Routes } from './config/routes';
 
 // Components.
 import Shell from './components/Shell';
+
+// Pages.
 import Candidates from './pages/Candidates';
+import InstallMetaMask from './pages/InstallMetaMask';
 import Results from './pages/Results';
 import Vote from './pages/Vote';
 
@@ -129,30 +133,54 @@ injectGlobal`
 
 const store: Store<ApplicationState> = configureStore();
 
-const App: React.SFC = () => (
-    <Provider store={store}>
-        <BrowserRouter>
-            <Shell>
-                <Switch>
-                    <Route
-                        component={Candidates}
-                        exact
-                        path={Routes.Candidates} />
-                    <Route
-                        component={Vote}
-                        exact
-                        path={Routes.Vote} />
-                    <Route
-                        component={Results}
-                        exact
-                        path={Routes.Results} />
-                    <Redirect
-                        from="*"
-                        to={Routes.Candidates} />
-                </Switch>
-            </Shell>
-        </BrowserRouter>
-    </Provider>
-);
+export class App extends React.PureComponent {
+    static checkWeb3(props: RouteComponentProps<{}>, component: React.ReactNode): React.ReactNode {
+        if (!window.web3) {
+            return (
+                <Redirect
+                    to={{
+                        pathname: Routes.InstallMetaMask,
+                        state: { from: props.location }
+                    }}
+                />
+            );
+        }
 
-export { App };
+        return component;
+    }
+
+    render(): React.ReactNode {
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Shell>
+                        <Switch>
+                            <Route
+                                component={InstallMetaMask}
+                                exact
+                                path={Routes.InstallMetaMask} />
+                            <Route
+                                exact
+                                path={Routes.Candidates}
+                                render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Candidates />)}
+                            />
+                            <Route
+                                exact
+                                path={Routes.Vote}
+                                render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Vote />)}
+                            />
+                            <Route
+                                exact
+                                path={Routes.Results}
+                                render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Results />)}
+                            />
+                            <Redirect
+                                from="*"
+                                to={Routes.Candidates} />
+                        </Switch>
+                    </Shell>
+                </BrowserRouter>
+            </Provider>
+        );
+    }
+}
