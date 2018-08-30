@@ -22,6 +22,13 @@ import palette from '../../styles/palette';
 // Types.
 import { SetPageTitleAction } from '../../store/layout/types';
 
+const BottomButtonContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
 const Header = styled.h2`
   color: ${palette.primary.black};
   margin: 0 0 1.5rem;
@@ -38,8 +45,9 @@ const Text = styled.p`
 const Wrapper = styled.main`
   align-items: center;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem 0;
 `;
 
@@ -71,10 +79,19 @@ export class InstallMetaMask extends React.PureComponent<Props> {
                 <Button
                     color="secondary"
                     href="https://metamask.io"
-                    variant="contained"
+                    target="_blank"
                 >
-                    Get Extension
+                    Get extension
                 </Button>
+                <BottomButtonContainer>
+                    <Button
+                        color="primary"
+                        onClick={() => window.location.reload()}
+                        variant="contained"
+                    >
+                        Already have the extension? Try again
+                    </Button>
+                </BottomButtonContainer>
             </Wrapper>
         );
     }

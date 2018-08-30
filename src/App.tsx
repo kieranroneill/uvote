@@ -14,6 +14,7 @@ import { injectGlobal } from 'styled-components';
 import { Routes } from './config/routes';
 
 // Components.
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import Shell from './components/Shell';
 
 // Pages.
@@ -30,6 +31,7 @@ import {
 
 // Styles.
 import palette from './styles/palette';
+import { theme } from './styles/theme';
 
 injectGlobal`
   @font-face {
@@ -152,34 +154,36 @@ export class App extends React.PureComponent {
     render(): React.ReactNode {
         return (
             <Provider store={store}>
-                <BrowserRouter>
-                    <Shell>
-                        <Switch>
-                            <Route
-                                component={InstallMetaMask}
-                                exact
-                                path={Routes.InstallMetaMask} />
-                            <Route
-                                exact
-                                path={Routes.Candidates}
-                                render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Candidates />)}
-                            />
-                            <Route
-                                exact
-                                path={Routes.Vote}
-                                render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Vote />)}
-                            />
-                            <Route
-                                exact
-                                path={Routes.Results}
-                                render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Results />)}
-                            />
-                            <Redirect
-                                from="*"
-                                to={Routes.Candidates} />
-                        </Switch>
-                    </Shell>
-                </BrowserRouter>
+                <MuiThemeProvider theme={theme}>
+                    <BrowserRouter>
+                        <Shell>
+                            <Switch>
+                                <Route
+                                    component={InstallMetaMask}
+                                    exact
+                                    path={Routes.InstallMetaMask} />
+                                <Route
+                                    exact
+                                    path={Routes.Candidates}
+                                    render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Candidates />)}
+                                />
+                                <Route
+                                    exact
+                                    path={Routes.Vote}
+                                    render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Vote />)}
+                                />
+                                <Route
+                                    exact
+                                    path={Routes.Results}
+                                    render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Results />)}
+                                />
+                                <Redirect
+                                    from="*"
+                                    to={Routes.Candidates} />
+                            </Switch>
+                        </Shell>
+                    </BrowserRouter>
+                </MuiThemeProvider>
             </Provider>
         );
     }

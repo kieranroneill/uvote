@@ -5,7 +5,10 @@ import { Action } from 'redux';
 // ====================================================
 
 export interface AddCandidateAction extends Action {
-    candidate: Candidate;
+    candidate: {
+        name: string,
+        party: string,
+    };
     type: CandidatesActionTypes.AddCandidate;
 }
 

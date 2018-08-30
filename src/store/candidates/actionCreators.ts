@@ -24,7 +24,13 @@ const ballotContract: TruffleContract<BallotContract> = contract(require('../../
 export type GetCandidatesActionCreator = ActionCreator<ThunkAction<Promise<GetCandidatesAction>, ApplicationState, void, GetCandidatesAction>>;
 export type AddCandidateActionCreator = ActionCreator<ThunkAction<Promise<AddCandidateAction>, ApplicationState, void, AddCandidateAction>>;
 
-export const addCandidate: AddCandidateActionCreator = (candidate: Candidate) => {
+export const addCandidate: AddCandidateActionCreator = (
+    address: string,
+    candidate: {
+        name: string,
+        party: string,
+    }
+) => {
     return async (dispatch: Dispatch): Promise<AddCandidateAction> => {
         let instance: BallotContract;
 
@@ -34,10 +40,7 @@ export const addCandidate: AddCandidateActionCreator = (candidate: Candidate) =>
 
         try {
             ballotContract.setProvider(window.web3.currentProvider);
-            ballotContract.defaults({
-                from: window.web3.eth.accounts[0],
-                gas: 6721975
-            });
+            ballotContract.defaults({ from: address });
 
             instance = await ballotContract.deployed();
 
@@ -73,9 +76,6 @@ export const getCandidates: GetCandidatesActionCreator = () => {
 
         try {
             ballotContract.setProvider(window.web3.currentProvider);
-            ballotContract.defaults({
-                from: window.web3.eth.accounts[0],
-            });
 
             instance = await ballotContract.deployed();
             numberOfCandidates = await instance.getNumOfCandidates();

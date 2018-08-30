@@ -2,20 +2,20 @@
 import { addCandidate } from './actionCreators';
 
 // Types.
-import {
-    Candidate,
-    CandidatesActionTypes,
-} from './types';
+import { CandidatesActionTypes } from './types';
 
 describe('src/store/candidates/actionCreators', () => {
     describe('addCandidate()', () => {
         it('should create an action to add a candidate', () => {
-            const candidate: Candidate = {
-                id: '8ad6a8hdadhahda6d8has',
+            const candidate: {
+                name: string,
+                party: string,
+            } = {
                 name: 'Kieran the Dictator',
+                party: 'Evil party'
             };
 
-            expect(addCandidate(candidate)).toEqual({
+            expect(addCandidate('a98s7a8ysha9d9adad9a6d9', candidate)).toEqual({
                 candidate,
                 type: CandidatesActionTypes.AddCandidate,
             });

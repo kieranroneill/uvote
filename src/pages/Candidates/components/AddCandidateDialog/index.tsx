@@ -52,6 +52,7 @@ const ProgressOverlay = styled.div`
 `;
 
 enum InputEnum {
+    Address = 'address',
     Name = 'name',
     Party = 'party',
 }
@@ -69,6 +70,7 @@ export interface Props {
 }
 
 export interface State {
+    [InputEnum.Address]: InputConfig;
     [InputEnum.Name]: InputConfig;
     [InputEnum.Party]: InputConfig;
 }
@@ -80,6 +82,10 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
         super(props);
 
         this.state = {
+            [InputEnum.Address]: {
+                error: '',
+                value: '',
+            },
             [InputEnum.Name]: {
                 error: '',
                 value: '',
@@ -144,6 +150,7 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
     public onAddCandidateClick(): void {
         const { candidatesState } = this.props;
         const {
+            address,
             name,
             party,
         } = this.state;
@@ -151,8 +158,11 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
         if (!candidatesState.loading) {
             if (this.validate()) {
                 this.props.addCandidate(
-                    name.value,
-                    party.value,
+                    address.value,
+                    {
+                        name: name.value,
+                        party: party.value,
+                    }
                 );
             }
         }
@@ -160,6 +170,10 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
 
     public onEnter(): void {
         this.setState({
+            address: {
+                error: '',
+                value: '',
+            },
             name: {
                 error: '',
                 value: '',
@@ -178,6 +192,7 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
             open,
         } = this.props;
         const {
+            address,
             name,
             party,
         } = this.state;
@@ -197,13 +212,13 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
                     <Form>
                         {
                             candidatesState.loading &&
-                            <ProgressOverlay>
-                                <CircularProgress
-                                    size={50}
-                                    style={{
-                                        color: palette.primary.grey,
-                                    }} />
-                            </ProgressOverlay>
+                                <ProgressOverlay>
+                                    <CircularProgress
+                                        size={50}
+                                        style={{
+                                            color: palette.primary.grey,
+                                        }} />
+                                </ProgressOverlay>
                         }
                         <TextField
                             error={!!name.error}
@@ -228,6 +243,18 @@ export class AddCandidateDialog extends React.PureComponent<Props> {
                             onChange={this.handleChange(InputEnum.Party)}
                             required={true}
                             value={party.value}
+                        />
+                        <TextField
+                            error={!!address.error}
+                            fullWidth={true}
+                            helperText={address.error}
+                            id={InputEnum.Address}
+                            label="Address"
+                            margin="normal"
+                            onBlur={this.handleBlur(InputEnum.Address)}
+                            onChange={this.handleChange(InputEnum.Address)}
+                            required={true}
+                            value={address.value}
                         />
                     </Form>
                 </DialogContent>
