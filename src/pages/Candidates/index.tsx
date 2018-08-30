@@ -19,11 +19,14 @@ import { setPageTitle } from '../../store/layout/actionCreators';
 // Components.
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 import AddCandidateDialog from './components/AddCandidateDialog';
-import { CandidateTile } from './components/CandidateTile';
+import { CandidateListItem } from './components/CandidateListItem';
 import Main from '../../components/Main';
 
 // Config.
@@ -40,14 +43,25 @@ import {
 } from '../../store/candidates/types';
 import { SetPageTitleAction } from '../../store/layout/types';
 
+// Utils.
+import { createHash } from '../../utils/stringUtils';
+
 const EmptyHeading = styled.h3`
   color: ${palette.primary.grey};
+`;
+const ProgressContainer = styled.div`
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem;
 `;
 const Wrapper = styled.div`
   height: 100%;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 800px;
   padding: 2rem 2rem 0;
+  width: 80%;
 `;
 
 interface Props {
@@ -86,30 +100,38 @@ class Candidates extends React.PureComponent<Props, State> {
 
         if (candidatesState.loading) {
             return (
-                <CircularProgress
-                    size={50}
-                    style={{
-                        color: palette.primary.grey,
-                    }} />
+                <ProgressContainer>
+                    <CircularProgress
+                        size={50}
+                        style={{
+                            color: palette.primary.grey,
+                        }}
+                    />
+                </ProgressContainer>
             );
         }
 
         if (candidatesState.items.length > 0) {
             return (
-                <Grid
-                    container
-                    justify="center"
-                    spacing={16}>
-                    {
-                        candidatesState.items.map((value: Candidate, index: number) =>
-                            <Grid
-                                item
-                                key={index}>
-                                <CandidateTile candidate={value} />
-                            </Grid>
-                        )
-                    }
-                </Grid>
+                <Paper>
+                    <List style={{
+                        backgroundColor: palette.primary.white,
+                        width: '100%',
+                    }}>
+                        {
+                            candidatesState.items.map((value: Candidate, index: number) =>
+                                <React.Fragment key={createHash(5)}>
+                                    {
+                                        index > 0 && <Divider />
+                                    }
+                                    <CandidateListItem
+                                        candidate={value}
+                                    />
+                                </React.Fragment>
+                            )
+                        }
+                    </List>
+                </Paper>
             );
         }
 
@@ -136,6 +158,14 @@ class Candidates extends React.PureComponent<Props, State> {
         return (
             <Main>
                 <Wrapper>
+                    <Typography
+                        style={{
+                            margin: '0 0 0.85rem',
+                        }}
+                        variant="title"
+                    >
+                        Current candidates
+                    </Typography>
                     {this.getCandidateTiles()}
                 </Wrapper>
                 <Tooltip
