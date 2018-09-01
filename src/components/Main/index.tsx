@@ -14,7 +14,6 @@ import {
 // Components.
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import DoneIcon from '@material-ui/icons/Done';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import PeopleIcon from '@material-ui/icons/People';
 
@@ -60,11 +59,6 @@ class Main extends React.PureComponent<Props> {
                         icon={<PeopleIcon />}
                         label={Titles.Candidates}
                         value={Routes.Candidates}
-                    />
-                    <BottomNavigationAction
-                        icon={<DoneIcon />}
-                        label={Titles.Vote}
-                        value={Routes.Vote}
                     />
                     <BottomNavigationAction
                         icon={<EqualizerIcon />}

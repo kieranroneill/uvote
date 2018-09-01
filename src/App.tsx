@@ -21,7 +21,6 @@ import Shell from './components/Shell';
 import Candidates from './pages/Candidates';
 import InstallMetaMask from './pages/InstallMetaMask';
 import Results from './pages/Results';
-import Vote from './pages/Vote';
 
 // Store.
 import {
@@ -166,11 +165,6 @@ export class App extends React.PureComponent {
                                     exact
                                     path={Routes.Candidates}
                                     render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Candidates />)}
-                                />
-                                <Route
-                                    exact
-                                    path={Routes.Vote}
-                                    render={(props: RouteComponentProps<{}>) => App.checkWeb3(props, <Vote />)}
                                 />
                                 <Route
                                     exact

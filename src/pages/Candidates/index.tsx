@@ -26,6 +26,7 @@ import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import AddCandidateDialog from './components/AddCandidateDialog';
+import { CandidateDialog } from './components/CandidateDialog';
 import { CandidateListItem } from './components/CandidateListItem';
 import Main from '../../components/Main';
 
@@ -72,7 +73,9 @@ interface Props {
 }
 
 interface State {
-    isDialogOpen: boolean,
+    isAddCandidateDialogOpen: boolean;
+    isCandidateDialogOpen: boolean;
+    selectedCandidate?: Candidate;
 }
 
 class Candidates extends React.PureComponent<Props, State> {
@@ -82,12 +85,15 @@ class Candidates extends React.PureComponent<Props, State> {
         super(props);
 
         this.state = {
-            isDialogOpen: false,
+            isAddCandidateDialogOpen: false,
+            isCandidateDialogOpen: false,
         };
 
         // Bind functions.
-        this.onDialogClose = this.onDialogClose.bind(this);
-        this.onDialogOpenClick = this.onDialogOpenClick.bind(this);
+        this.onAddCandidateDialogClose = this.onAddCandidateDialogClose.bind(this);
+        this.onAddCandidateDialogOpenClick = this.onAddCandidateDialogOpenClick.bind(this);
+        this.onCandidateDialogClose = this.onCandidateDialogClose.bind(this);
+        this.onCandidateDialogOpenClick = this.onCandidateDialogOpenClick.bind(this);
     }
 
     componentDidMount(): void {
@@ -125,6 +131,7 @@ class Candidates extends React.PureComponent<Props, State> {
                                         index > 0 && <Divider />
                                     }
                                     <CandidateListItem
+                                        onClick={this.onCandidateDialogOpenClick}
                                         candidate={value}
                                     />
                                 </React.Fragment>
@@ -140,20 +147,42 @@ class Candidates extends React.PureComponent<Props, State> {
         );
     }
 
-    onDialogClose(): void {
+    onAddCandidateDialogClose(): void {
         this.setState({
-            isDialogOpen: false,
+            isAddCandidateDialogOpen: false,
         });
     }
 
-    onDialogOpenClick(): void {
+    onAddCandidateDialogOpenClick(): void {
+        if (!this.state.isCandidateDialogOpen) {
+            this.setState({
+                isAddCandidateDialogOpen: true,
+            });
+        }
+    }
+
+    onCandidateDialogClose(): void {
         this.setState({
-            isDialogOpen: true,
+            isCandidateDialogOpen: false,
+            selectedCandidate: undefined,
         });
+    }
+
+    onCandidateDialogOpenClick(candidate: Candidate): void {
+        if (!this.state.isAddCandidateDialogOpen) {
+            this.setState({
+                isCandidateDialogOpen: true,
+                selectedCandidate: candidate,
+            });
+        }
     }
 
     render(): React.ReactNode {
-        const { isDialogOpen } = this.state;
+        const {
+            isAddCandidateDialogOpen,
+            isCandidateDialogOpen,
+            selectedCandidate,
+        } = this.state;
 
         return (
             <Main>
@@ -174,7 +203,7 @@ class Candidates extends React.PureComponent<Props, State> {
                     <Button
                         aria-label="Add candidate"
                         color="secondary"
-                        onClick={this.onDialogOpenClick}
+                        onClick={this.onAddCandidateDialogOpenClick}
                         style={{
                             bottom: '2rem',
                             position: 'absolute',
@@ -184,9 +213,14 @@ class Candidates extends React.PureComponent<Props, State> {
                         <AddIcon />
                     </Button>
                 </Tooltip>
+                <CandidateDialog
+                    candidate={selectedCandidate}
+                    onClose={this.onCandidateDialogClose}
+                    open={isCandidateDialogOpen}
+                />
                 <AddCandidateDialog
-                    onClose={this.onDialogClose}
-                    open={isDialogOpen}
+                    onClose={this.onAddCandidateDialogClose}
+                    open={isAddCandidateDialogOpen}
                 />
             </Main>
         );
