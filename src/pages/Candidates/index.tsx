@@ -13,6 +13,8 @@ import {
     AddCandidateActionCreator,
     getCandidates,
     GetCandidatesActionCreator,
+    vote,
+    VoteActionCreator,
 } from '../../store/candidates/actionCreators';
 import { setPageTitle } from '../../store/layout/actionCreators';
 
@@ -65,20 +67,21 @@ const Wrapper = styled.div`
   width: 80%;
 `;
 
-interface Props {
+export interface Props {
     addCandidate: AddCandidateActionCreator;
     candidatesState: CandidatesState;
     getCandidates: GetCandidatesActionCreator;
     setPageTitle: ActionCreator<SetPageTitleAction>;
+    vote: VoteActionCreator;
 }
 
-interface State {
+export interface State {
     isAddCandidateDialogOpen: boolean;
     isCandidateDialogOpen: boolean;
     selectedCandidate?: Candidate;
 }
 
-class Candidates extends React.PureComponent<Props, State> {
+export class Candidates extends React.PureComponent<Props, State> {
     public state: State;
 
     constructor(props: Props) {
@@ -94,6 +97,7 @@ class Candidates extends React.PureComponent<Props, State> {
         this.onAddCandidateDialogOpenClick = this.onAddCandidateDialogOpenClick.bind(this);
         this.onCandidateDialogClose = this.onCandidateDialogClose.bind(this);
         this.onCandidateDialogOpenClick = this.onCandidateDialogOpenClick.bind(this);
+        this.onVoteClick = this.onVoteClick.bind(this);
     }
 
     componentDidMount(): void {
@@ -131,8 +135,9 @@ class Candidates extends React.PureComponent<Props, State> {
                                         index > 0 && <Divider />
                                     }
                                     <CandidateListItem
-                                        onClick={this.onCandidateDialogOpenClick}
                                         candidate={value}
+                                        onClick={this.onCandidateDialogOpenClick}
+                                        onVoteClick={this.onVoteClick}
                                     />
                                 </React.Fragment>
                             )
@@ -175,6 +180,10 @@ class Candidates extends React.PureComponent<Props, State> {
                 selectedCandidate: candidate,
             });
         }
+    }
+
+    onVoteClick(candidate: Candidate): void {
+        this.props.vote('some random address', createHash(5), candidate.id);
     }
 
     render(): React.ReactNode {
@@ -231,13 +240,10 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     addCandidate: bindActionCreators(addCandidate, dispatch),
     getCandidates: bindActionCreators(getCandidates, dispatch),
     setPageTitle: bindActionCreators(setPageTitle, dispatch),
+    vote: bindActionCreators(vote, dispatch),
 });
 const mapStateToProps = (state: ApplicationState) => ({
     candidatesState: state.candidatesState,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Candidates);
-export {
-    Candidates,
-    Props,
-};

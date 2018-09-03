@@ -34,6 +34,11 @@ const reducer: Reducer<CandidatesState, CandidatesActions> = (state: CandidatesS
                 items: action.items,
                 loading: false,
             };
+        case CandidatesActionTypes.VoteSuccess:
+            return {
+                ...state,
+                loading: false,
+            };
         default:
             return state;
     }

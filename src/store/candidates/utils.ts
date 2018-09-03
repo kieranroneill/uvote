@@ -34,7 +34,7 @@ export async function getCandidatesFromContract(instance: BallotContract, number
 
     for (let i: number = 0; i < numberOfCandidates; i++) {
         getCandidatePromises.push(instance.getCandidate(i));
-        getVotesPromises.push(instance.totalVotes(i));
+        getVotesPromises.push(instance.votesByCandidate(i));
     }
 
     candidates = await Promise.all(getCandidatePromises);
@@ -42,6 +42,7 @@ export async function getCandidatesFromContract(instance: BallotContract, number
 
     for (let i: number = 0; i < numberOfCandidates; i++) {
         items.push({
+            id: i,
             name: window.web3.toAscii(candidates[i][1]).replace(/\u0000/g, ''),
             party: window.web3.toAscii(candidates[i][2]).replace(/\u0000/g, ''),
             votes: votes[i].toNumber(),

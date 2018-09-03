@@ -18,6 +18,7 @@ const ButtonContainer = styled.div`
 export interface Props {
     candidate: Candidate;
     onClick: (candidate: Candidate) => void;
+    onVoteClick: (candidate: Candidate) => void;
 }
 
 export const CandidateListItem: React.SFC<Props> = (props: Props) => (
@@ -37,6 +38,7 @@ export const CandidateListItem: React.SFC<Props> = (props: Props) => (
             <ButtonContainer>
                 <Button
                     color="secondary"
+                    onClick={() => props.onVoteClick(props.candidate)}
                     variant="outlined"
                 >
                     Vote

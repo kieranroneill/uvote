@@ -45,7 +45,7 @@ contract Ballot {
      *  Getter Functions, marked by the key word "view" *
      * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    function totalVotes(uint candidateId) view public returns (uint) {
+    function votesByCandidate(uint candidateId) view public returns (uint) {
         uint numOfVotes = 0;
 
         for (uint i = 0; i < numVoters; i++) {

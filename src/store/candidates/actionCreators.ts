@@ -14,6 +14,7 @@ import {
     Candidate,
     CandidatesActionTypes,
     GetCandidatesAction,
+    VoteAction,
 } from './types';
 
 // Utils.
@@ -23,6 +24,7 @@ const ballotContract: TruffleContract<BallotContract> = contract(require('../../
 
 export type GetCandidatesActionCreator = ActionCreator<ThunkAction<Promise<GetCandidatesAction>, ApplicationState, void, GetCandidatesAction>>;
 export type AddCandidateActionCreator = ActionCreator<ThunkAction<Promise<AddCandidateAction>, ApplicationState, void, AddCandidateAction>>;
+export type VoteActionCreator = ActionCreator<ThunkAction<Promise<VoteAction>, ApplicationState, void, AddCandidateAction>>;
 
 export const addCandidate: AddCandidateActionCreator = (
     address: string,
@@ -95,5 +97,33 @@ export const getCandidates: GetCandidatesActionCreator = () => {
         return {
             type: CandidatesActionTypes.GetCandidates,
         }
+    };
+};
+
+export const vote: VoteActionCreator = (address: string, voterId: string, candidateId: number) => {
+    return async (dispatch: Dispatch): Promise<VoteAction> => {
+        let instance: BallotContract;
+
+        try {
+            ballotContract.setProvider(window.web3.currentProvider);
+            ballotContract.defaults({ from: window.web3.eth.accounts[0] });
+
+            instance = await ballotContract.deployed();
+
+            await instance.vote(voterId, candidateId);
+
+            dispatch({
+                type: CandidatesActionTypes.VoteSuccess,
+            })
+        } catch (error) {
+            dispatch({
+                error: 'failed to vote for candidate',
+                type: CandidatesActionTypes.CandidatesError,
+            });
+        }
+
+        return {
+            type: CandidatesActionTypes.Vote,
+        };
     };
 };

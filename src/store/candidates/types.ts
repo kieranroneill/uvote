@@ -35,12 +35,22 @@ export interface GetCandidatesSuccessAction extends Action {
     type: CandidatesActionTypes.GetCandidatesSuccess;
 }
 
+export interface VoteAction extends Action {
+    type: CandidatesActionTypes.Vote;
+}
+
+export interface VoteSuccessAction extends Action {
+    type: CandidatesActionTypes.VoteSuccess;
+}
+
 export type CandidatesActions = AddCandidateAction
     | AddCandidateSuccessAction
     | CandidatesErrorAction
     | CandidatesRequestAction
     | GetCandidatesAction
-    | GetCandidatesSuccessAction;
+    | GetCandidatesSuccessAction
+    | VoteAction
+    | VoteSuccessAction;
 
 // ====================================================
 // Action types.
@@ -53,6 +63,8 @@ export enum CandidatesActionTypes {
     CandidatesRequest = '@candidates/CANDIDATES_REQUEST',
     GetCandidates = '@candidates/GET_CANDIDATES',
     GetCandidatesSuccess = '@candidates/GET_CANDIDATES_SUCCESS',
+    Vote = '@candidates/VOTE',
+    VoteSuccess = '@candidates/VOTE_SUCCESS',
 }
 
 // ====================================================
@@ -60,6 +72,7 @@ export enum CandidatesActionTypes {
 // ====================================================
 
 export interface Candidate {
+    id: number;
     name: string;
     party: string;
     votes: number;
