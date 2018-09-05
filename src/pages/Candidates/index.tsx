@@ -35,6 +35,9 @@ import Main from '../../components/Main';
 // Config.
 import { Titles } from '../../config/routes';
 
+// Contexts.
+import { IpfsConsumer, IpfsContext } from '../../components/IpfsContext';
+
 // Styles.
 import palette from '../../styles/palette';
 
@@ -194,44 +197,48 @@ export class Candidates extends React.PureComponent<Props, State> {
         } = this.state;
 
         return (
-            <Main>
-                <Wrapper>
-                    <Typography
-                        style={{
-                            margin: '0 0 0.85rem',
-                        }}
-                        variant="title"
-                    >
-                        Current candidates
-                    </Typography>
-                    {this.getCandidateTiles()}
-                </Wrapper>
-                <Tooltip
-                    placement="top-start"
-                    title="Add candidate">
-                    <Button
-                        aria-label="Add candidate"
-                        color="secondary"
-                        onClick={this.onAddCandidateDialogOpenClick}
-                        style={{
-                            bottom: '2rem',
-                            position: 'absolute',
-                            right: '2rem',
-                        }}
-                        variant="fab">
-                        <AddIcon />
-                    </Button>
-                </Tooltip>
-                <CandidateDialog
-                    candidate={selectedCandidate}
-                    onClose={this.onCandidateDialogClose}
-                    open={isCandidateDialogOpen}
-                />
-                <AddCandidateDialog
-                    onClose={this.onAddCandidateDialogClose}
-                    open={isAddCandidateDialogOpen}
-                />
-            </Main>
+            <IpfsConsumer>
+                {(context: IpfsContext) => (
+                    <Main>
+                        <Wrapper>
+                            <Typography
+                                style={{
+                                    margin: '0 0 0.85rem',
+                                }}
+                                variant="title"
+                            >
+                                Current candidates
+                            </Typography>
+                            {this.getCandidateTiles()}
+                        </Wrapper>
+                        <Tooltip
+                            placement="top-start"
+                            title="Add candidate">
+                            <Button
+                                aria-label="Add candidate"
+                                color="secondary"
+                                onClick={this.onAddCandidateDialogOpenClick}
+                                style={{
+                                    bottom: '2rem',
+                                    position: 'absolute',
+                                    right: '2rem',
+                                }}
+                                variant="fab">
+                                <AddIcon />
+                            </Button>
+                        </Tooltip>
+                        <CandidateDialog
+                            candidate={selectedCandidate}
+                            onClose={this.onCandidateDialogClose}
+                            open={isCandidateDialogOpen}
+                        />
+                        <AddCandidateDialog
+                            onClose={this.onAddCandidateDialogClose}
+                            open={isAddCandidateDialogOpen}
+                        />
+                    </Main>
+                )}
+            </IpfsConsumer>
         );
     }
 }

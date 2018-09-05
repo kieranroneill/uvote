@@ -10,12 +10,12 @@ import {
 import { Store } from 'redux';
 import { injectGlobal } from 'styled-components';
 
-// Config.
-import { Routes } from './config/routes';
-
 // Components.
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import Shell from './components/Shell';
+
+// Config.
+import { Routes } from './config/routes';
 
 // Pages.
 import Candidates from './pages/Candidates';

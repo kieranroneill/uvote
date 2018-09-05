@@ -7,6 +7,7 @@ import { LayoutState } from './types';
  */
 export function getInitialState(): LayoutState {
     return {
+        loading: false,
         page: {
             title: 'uVote',
         },

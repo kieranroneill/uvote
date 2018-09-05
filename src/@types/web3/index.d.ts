@@ -397,7 +397,6 @@ declare module 'web3' {
             topics: string[];
         }
     }
-    /* tslint:disable */
+
     export = Web3;
-    /* tslint:enable */
 }
